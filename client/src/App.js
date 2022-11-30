@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import Header from './Header';
+import DropDownMenu from './DropDownMenu';
+import Categories from './Categories';
 import './App.css';
 
 function App() {
@@ -16,10 +18,11 @@ function App() {
 
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>{!data ? 'Loading some data...' : data}</p>
-			</header>
+			<Header />
+			<nav className='navigation'>
+				<DropDownMenu />
+				<Categories />
+			</nav>
 		</div>
 	);
 }

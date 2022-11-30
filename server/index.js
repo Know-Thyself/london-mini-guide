@@ -16,15 +16,31 @@ const PORT = process.env.PORT || 5000;
 
 const routes = [
 	{
-		'/pharmacies': 'returns pharmacies list for in a specific area',
-		'/colleges': 'returns colleges list for in a specific area',
-		'/doctors': 'returns doctors list for in a specific area',
-		'/hospitals': 'returns hospitals list for in a specific area',
+		'/api/city/pharmacies': 'returns pharmacies list for in a specific area',
+		'/api/city/colleges': 'returns colleges list for in a specific area',
+		'/api/city/doctors': 'returns doctors list for in a specific area',
+		'/api/city/hospitals': 'returns hospitals list for in a specific area',
 	},
 ];
 
 app.get('/api', (req, res) => {
 	res.json({ message: 'Server is ready!' });
+});
+
+app.get('/api/:city/:category', (req, res) => {
+	let city = req.params.city;
+	let category = req.params.category;
+	try {
+		if (city === 'Heathrow') {
+			res.json(Heathrow[category]);
+		} else if (city === 'Harrow') {
+			res.json(Harrow[category]);
+		} else if (city === 'Stratford') {
+			res.json(Stratford[category]);
+		}
+	} catch (error) {
+		res.status(500).send(error);
+	}
 });
 
 app.listen(PORT, () => {
