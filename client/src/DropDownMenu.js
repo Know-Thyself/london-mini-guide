@@ -5,8 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function DropDownMenu() {
-	const [selectedCity, setSelectedCity] = React.useState('');
+export default function DropDownMenu({ selectedCity, setSelectedCity} ) {
   const cities = ['Harrow', 'Heathrow', 'Stratford']
 
 	const handleChange = (e) => {

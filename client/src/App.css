@@ -52,3 +52,8 @@
 .radio-input:checked + .radio-label {
   background-color: #b7defc;;
 }
+
+.table-row {
+  display: flex;
+  justify-content: space-evenly;
+}

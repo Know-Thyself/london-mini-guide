@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-const Categories = () => {
+const Categories = ({ selectedCategory, setSelectedCategory }) => {
   const categories = ['Pharmacies', 'Schools & Colleges', 'Hospitals', 'Doctors'];
-  const [selectedCategory, setSelectedCategory] = useState('');
   const RadioButtonsToggler = (e) => {
     console.log(e.target.value)
     setSelectedCategory(e.target.value)
