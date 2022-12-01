@@ -1,26 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&family=Montserrat:wght@300;800&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+/* 
+font-family: 'League Spartan', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+ */
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: yellowgreen;
 }
 
 
-/* .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
+.header {
+  width: 100%;
+  background-color: yellowgreen;
+}
 
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: auto;
+  width: 95%;
+  margin: 1rem auto;
 }
 .radio-container {
   display: inline-flex;
@@ -51,9 +55,4 @@
 
 .radio-input:checked + .radio-label {
   background-color: #b7defc;;
-}
-
-.table-row {
-  display: flex;
-  justify-content: space-evenly;
 }

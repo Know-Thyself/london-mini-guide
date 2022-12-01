@@ -5,17 +5,19 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function DropDownMenu({ selectedCity, setSelectedCity} ) {
+
+export default function DropDownMenu({ selectedCity, setSelectedCity, setPage }) {
   const cities = ['Harrow', 'Heathrow', 'Stratford']
 
 	const handleChange = (e) => {
     console.log(e.target.value)
 		setSelectedCity(e.target.value);
+		setPage(0);
 	};
 
 	return (
 		<Box sx={{ minWidth: 140 }}>
-			<FormControl fullWidth>
+			<FormControl fullWidth size='small'>
 				<InputLabel id='select-label'>Select A City</InputLabel>
 				<Select
 					labelId='select-label'
@@ -23,9 +25,12 @@ export default function DropDownMenu({ selectedCity, setSelectedCity} ) {
 					value={selectedCity}
 					label='Select A City'
 					onChange={handleChange}
+					style={{ backgroundColor: 'aliceblue' }}
 				>
 					{cities.map((city, index) => (
-						<MenuItem key={index} value={city}>{city}</MenuItem>
+						<MenuItem key={index} value={city}>
+							{city}
+						</MenuItem>
 					))}
 				</Select>
 			</FormControl>

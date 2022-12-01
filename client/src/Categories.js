@@ -1,14 +1,27 @@
-const Categories = ({ selectedCategory, setSelectedCategory }) => {
-  const categories = ['Pharmacies', 'Schools & Colleges', 'Hospitals', 'Doctors'];
-  const RadioButtonsToggler = (e) => {
-    console.log(e.target.value)
-    setSelectedCategory(e.target.value)
-		// if (e.target.value === 'boys') {
-		// 	return setBabyNames(boysCategory);
-		// } else if (e.target.value === 'girls') setBabyNames(girlsCategory);
-		// else if (e.target.value === 'boys & girls') setBabyNames(props.babyNames);
+const Categories = ({
+	selectedCategory,
+	setSelectedCategory,
+	selectedCity,
+	setPage,
+}) => {
+	const categories = [
+		'Pharmacies',
+		'Schools & Colleges',
+		'Hospitals',
+		'Doctors',
+	];
+	const changeHandler = (e) => {
+		if (selectedCity === '') {
+			alert('Please select a city first');
+			setSelectedCategory('');
+		} else {
+			setPage(0);
+			setSelectedCategory(e.target.value);
+			window.scrollTo(0, 0);
+		}
 	};
-  return (
+	
+	return (
 		<div key='radio' className='radio-container'>
 			{categories.map((category, index) => (
 				<>
@@ -20,10 +33,7 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
 						name='selector'
 						id={category}
 						checked={selectedCategory === category}
-						onChange={(e) => {
-							setSelectedCategory(e.target.value);
-						}}
-						onClick={RadioButtonsToggler}
+						onChange={changeHandler}
 					/>
 					<label key={category} htmlFor={category} className='radio-label'>
 						{category}
@@ -32,7 +42,6 @@ const Categories = ({ selectedCategory, setSelectedCategory }) => {
 			))}
 		</div>
 	);
-
-}
+};
 
 export default Categories;

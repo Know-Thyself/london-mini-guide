@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import DropDownMenu from './DropDownMenu';
 import Categories from './Categories';
-import UsefulInfoTable from './UsefulInfoTable';
+import CityInfoTable from './CityInfoTable';
 import './App.css';
 
 function App() {
 	const [cityData, setCityData] = useState(null);
 	const [selectedCity, setSelectedCity] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('');
+	const [page, setPage] = useState(0);
 
 	useEffect(() => {
 		if (selectedCity && selectedCategory) {
@@ -31,13 +32,16 @@ function App() {
 				<DropDownMenu
 					selectedCity={selectedCity}
 					setSelectedCity={setSelectedCity}
+					setPage={setPage}
 				/>
 				<Categories
 					selectedCategory={selectedCategory}
 					setSelectedCategory={setSelectedCategory}
+					selectedCity={selectedCity}
+					setPage={setPage}
 				/>
 			</nav>
-			<UsefulInfoTable cityData={cityData} />
+			<CityInfoTable cityData={cityData} page={page} setPage={setPage} />
 		</div>
 	);
 }
