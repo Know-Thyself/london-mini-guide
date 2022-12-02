@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
 import TableContainer from '@mui/material/TableContainer';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
@@ -17,30 +18,24 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 
-import TableHead from '@mui/material/TableHead';
-
 function TablePaginationActions(props) {
 	const theme = useTheme();
 	const { count, page, rowsPerPage, onPageChange } = props;
 
 	const handleFirstPageButtonClick = (event) => {
 		onPageChange(event, 0);
-		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleBackButtonClick = (event) => {
 		onPageChange(event, page - 1);
-		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleNextButtonClick = (event) => {
 		onPageChange(event, page + 1);
-		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleLastPageButtonClick = (event) => {
 		onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
-		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	return (
@@ -104,6 +99,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 		fontFamily: 'Source Sans Pro',
 		fontSize: 16,
 		fontWeight: '600',
+		height: '3rem',
 	},
 }));
 
