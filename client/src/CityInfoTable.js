@@ -25,18 +25,22 @@ function TablePaginationActions(props) {
 
 	const handleFirstPageButtonClick = (event) => {
 		onPageChange(event, 0);
+		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleBackButtonClick = (event) => {
 		onPageChange(event, page - 1);
+		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleNextButtonClick = (event) => {
 		onPageChange(event, page + 1);
+		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const handleLastPageButtonClick = (event) => {
 		onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	return (
@@ -90,11 +94,11 @@ TablePaginationActions.propTypes = {
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
+		backgroundColor: theme.palette.common.black,
+		color: theme.palette.common.white,
 		fontFamily: 'Source Sans Pro',
 		fontSize: 18,
 		fontWeight: '700',
-		backgroundColor: theme.palette.common.black,
-		color: theme.palette.common.white,
 	},
 	[`&.${tableCellClasses.body}`]: {
 		fontFamily: 'Source Sans Pro',
@@ -114,7 +118,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function CityInfoTable({ cityData, page, setPage }) {
-	const [rowsPerPage, setRowsPerPage] = React.useState(7);
+	const [rowsPerPage, setRowsPerPage] = React.useState(5);
 	// Avoid a layout jump when reaching the last page with empty rows.
 	const emptyRows =
 		page > 0 ? Math.max(0, (1 + page) * rowsPerPage - cityData.length) : 0;
@@ -129,15 +133,12 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 	};
 
 	return (
-		<TableContainer component={Paper} style={{ width: '100%', margin: 'auto' }}>
-			<Table
-				sx={{ width: '95%', margin: 'auto' }}
-				aria-label='custom pagination table'
-			>
+		<TableContainer component={Paper} sx={{ width: '95%', margin: 'auto' }}>
+			<Table aria-label='custom pagination table'>
 				<TableHead>
 					<TableRow>
 						<StyledTableCell
-							style={{ width: '10%', borderRight: 'solid 2px grey' }}
+							style={{ width: '5%', borderRight: 'solid 2px grey' }}
 							align='center'
 						>
 							#
@@ -155,7 +156,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 							Phone
 						</StyledTableCell>
 						<StyledTableCell
-							style={{ width: '25%', borderRight: 'solid 2px grey' }}
+							style={{ width: '30%', borderRight: 'solid 2px grey' }}
 							align='center'
 						>
 							Address
@@ -179,7 +180,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 									component='th'
 									scope='row'
 									align='left'
-									style={{ width: '10%', borderRight: 'solid 2px grey' }}
+									style={{ width: '5%', borderRight: 'solid 2px grey' }}
 								>
 									{cityData ? cityData.indexOf(row) + 1 : null}
 								</StyledTableCell>
@@ -204,7 +205,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 								<StyledTableCell
 									align='left'
 									scope='row'
-									style={{ width: '25%', borderRight: 'solid 2px grey' }}
+									style={{ width: '30%', borderRight: 'solid 2px grey' }}
 								>
 									{row.address}
 								</StyledTableCell>
@@ -214,7 +215,12 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 									style={{ width: '25%' }}
 								>
 									{row.website ? (
-										<a style={{ textDecoration: 'none' }} href={row.website}>
+										<a
+											href={row.website}
+											target='_blank'
+											rel='noreferrer noopener'
+											style={{ textDecoration: 'none' }}
+										>
 											{row.name}
 										</a>
 									) : (
@@ -233,15 +239,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 				<TableFooter>
 					<TableRow>
 						<TablePagination
-							rowsPerPageOptions={[
-								4,
-								7,
-								10,
-								13,
-								16,
-								20,
-								{ label: 'All', value: -1 },
-							]}
+							rowsPerPageOptions={[5, 10, 15, 20, { label: 'All', value: -1 }]}
 							colSpan={5}
 							count={cityData ? cityData.length : 0}
 							rowsPerPage={rowsPerPage}

@@ -3,6 +3,7 @@ import Header from './Header';
 import DropDownMenu from './DropDownMenu';
 import Categories from './Categories';
 import CityInfoTable from './CityInfoTable';
+import Footer from './Footer';
 import './App.css';
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
 					setPage={setPage}
 				/>
 			</nav>
-			<CityInfoTable cityData={cityData} page={page} setPage={setPage} />
+			<main className='main-container'>
+				<CityInfoTable cityData={cityData} page={page} setPage={setPage} />
+			</main>
+			<Footer />
 		</div>
 	);
 }
