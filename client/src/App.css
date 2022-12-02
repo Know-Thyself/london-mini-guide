@@ -16,7 +16,12 @@ font-family: 'Source Sans Pro', sans-serif;
 
 .header {
   width: 100%;
-  background-color: yellowgreen;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #edf2f4;
+}
+
+.sub-text {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navigation {
@@ -26,6 +31,7 @@ font-family: 'Source Sans Pro', sans-serif;
   width: 95%;
   margin: 1rem auto;
 }
+
 .radio-container {
   display: inline-flex;
   overflow: hidden;
@@ -42,17 +48,20 @@ font-family: 'Source Sans Pro', sans-serif;
 .radio-label {
   padding: 0.5rem;
   font-size: 1em;
-  color: rgb(100, 44, 93);
+  color: white;
   background-color: rgb(45, 104, 72);
-  background-color: #457092;
+  background-color: #8d99ae;
+  color: black;
   cursor: pointer;
   transition: background 0.1s;
 }
 
 .radio-label:not(:last-of-type) {
   border-right: 0.2em solid rgb(66, 49, 49);
+  border-right: 0.2rem solid #d80032;
 }
 
 .radio-input:checked + .radio-label {
-  background-color: #b7defc;;
+  background-color: #2b2d42;
+  color: white;
 }
