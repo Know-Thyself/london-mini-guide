@@ -3,6 +3,7 @@ const Categories = ({
 	setSelectedCategory,
 	selectedCity,
 	setPage,
+	setOpenAlert
 }) => {
 	const categories = [
 		'Pharmacies',
@@ -12,7 +13,7 @@ const Categories = ({
 	];
 	const changeHandler = (e) => {
 		if (selectedCity === '') {
-			alert('Please select a city first');
+			setOpenAlert(true);
 			setSelectedCategory('');
 		} else {
 			setPage(0);
@@ -20,7 +21,7 @@ const Categories = ({
 			window.scrollTo(0, 0);
 		}
 	};
-	
+
 	return (
 		<div key='radio' className='radio-container'>
 			{categories.map((category, index) => (

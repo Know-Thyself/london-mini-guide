@@ -4,6 +4,7 @@ import DropDownMenu from './DropDownMenu';
 import Categories from './Categories';
 import CityInfoTable from './CityInfoTable';
 import Footer from './Footer';
+import InfoAlert from './InfoAlert';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 	const [selectedCity, setSelectedCity] = useState('');
 	const [selectedCategory, setSelectedCategory] = useState('');
 	const [page, setPage] = useState(0);
+	const [openAlert, setOpenAlert] = useState(false);
 
 	useEffect(() => {
 		if (selectedCity && selectedCategory) {
@@ -35,11 +37,13 @@ function App() {
 					setSelectedCity={setSelectedCity}
 					setPage={setPage}
 				/>
+				<InfoAlert openAlert={openAlert} setOpenAlert={setOpenAlert} />
 				<Categories
 					selectedCategory={selectedCategory}
 					setSelectedCategory={setSelectedCategory}
 					selectedCity={selectedCity}
 					setPage={setPage}
+					setOpenAlert={setOpenAlert}
 				/>
 			</nav>
 			<main className='main-container'>
