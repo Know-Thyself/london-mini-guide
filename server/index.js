@@ -1,17 +1,16 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import { createRequire } from 'module'; // Bring in the ability to create the 'require' method back to ES module scope
 const require = createRequire(import.meta.url);
-// import bodyParser from 'body-parser';
-// app.use(bodyParser.json());
+const app = express();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 const Harrow = require('./data/Harrow.json');
 const Heathrow = require('./data/Heathrow.json');
 const Stratford = require('./data/Stratford.json');
+let cities = { Harrow: Harrow, Heathrow: Heathrow, Stratford: Stratford };
 const PORT = process.env.PORT || 5000;
 
 const routes = [
@@ -31,12 +30,12 @@ app.get('/api/:city/:category', (req, res) => {
 	let city = req.params.city;
 	let category = req.params.category;
 	try {
-		if (city === 'Heathrow') {
-			res.json(Heathrow[category]);
-		} else if (city === 'Harrow') {
-			res.json(Harrow[category]);
-		} else if (city === 'Stratford') {
-			res.json(Stratford[category]);
+		if (cities[city] && cities[city][category]) {
+			res.json(cities[city][category]);
+		} else {
+			res.status(404).json({
+				message: `No data is available for '${city}' or '${category}'. Please check your request parameters and try again.`,
+			});
 		}
 	} catch (error) {
 		res.status(500).send(error);
