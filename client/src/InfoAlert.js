@@ -7,7 +7,7 @@ import Collapse from '@mui/material/Collapse';
 
 export default function InfoAlert({ openAlert, setOpenAlert }) {
 	return (
-		<Box sx={{ width: '20%' }}>
+		<Box sx={{ width: 'max-content' }}>
 				<Collapse in={openAlert}>
 					<Alert
 						severity='info'
