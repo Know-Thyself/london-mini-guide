@@ -8,26 +8,34 @@ import Collapse from '@mui/material/Collapse';
 export default function InfoAlert({ openAlert, setOpenAlert }) {
 	return (
 		<Box sx={{ width: 'max-content' }}>
-				<Collapse in={openAlert}>
-					<Alert
-						severity='info'
-						action={
-							<IconButton
-								aria-label='close'
-								color='inherit'
-								size='small'
-								onClick={() => {
-									setOpenAlert(false);
-								}}
-							>
-								<CloseIcon fontSize='inherit' />
-							</IconButton>
-						}
-						sx={{ mb: 2 }}
-					>
-						<strong>Please select a city first</strong>
-					</Alert>
-				</Collapse>
+			<Collapse in={openAlert}>
+				<Alert
+					severity='info'
+					action={
+						<IconButton
+							aria-label='close'
+							color='inherit'
+							size='small'
+							onClick={() => {
+								setOpenAlert(false);
+							}}
+						>
+							<CloseIcon fontSize='inherit' />
+						</IconButton>
+					}
+					sx={{
+						mb: 2,
+						width: 'max-content',
+						height: 'min-height',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						margin: 'auto',
+					}}
+				>
+					<strong>Please select a city first</strong>
+				</Alert>
+			</Collapse>
 		</Box>
 	);
 }

@@ -11,7 +11,7 @@ export default function DropDownMenu({
 	setPage,
 }) {
 	const cities = ['Harrow', 'Heathrow', 'Stratford'];
-	const [select, setSelect] = React.useState('Select City')
+	const [select, setSelect] = React.useState('Select a City')
 
 	const handleChange = (e) => {
 		setSelect('');
