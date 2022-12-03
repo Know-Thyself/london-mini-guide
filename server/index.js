@@ -7,12 +7,7 @@ import { createRequire } from 'module'; // Bring in the ability to create the 'r
 const require = createRequire(import.meta.url);
 const app = express();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-const Harrow = require('./data/Harrow.json');
-const Heathrow = require('./data/Heathrow.json');
-const Stratford = require('./data/Stratford.json');
-let cities = { Harrow: Harrow, Heathrow: Heathrow, Stratford: Stratford };
 const PORT = process.env.PORT || 5000;
-
 const routes = [
 	{
 		'/api/city/pharmacies': 'returns pharmacies list for in a specific area',
@@ -25,6 +20,11 @@ const routes = [
 app.get('/api', (req, res) => {
 	res.json({ message: 'Server is ready!' });
 });
+
+const Harrow = require('./data/Harrow.json');
+const Heathrow = require('./data/Heathrow.json');
+const Stratford = require('./data/Stratford.json');
+let cities = { Harrow: Harrow, Heathrow: Heathrow, Stratford: Stratford };
 
 app.get('/api/:city/:category', (req, res) => {
 	let city = req.params.city;

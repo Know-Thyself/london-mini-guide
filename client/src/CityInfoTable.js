@@ -210,7 +210,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 									scope='row'
 									style={{ width: '25%' }}
 								>
-									{row.website ? (
+									{row.website && row.website !== '#' ? (
 										<a
 											href={row.website}
 											target='_blank'
