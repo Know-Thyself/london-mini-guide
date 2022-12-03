@@ -235,6 +235,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 				<TableFooter>
 					<TableRow>
 						<TablePagination
+							sx={{ backgroundColor: '#edf2f4' }}
 							rowsPerPageOptions={[5, 10, 15, 20, { label: 'All', value: -1 }]}
 							colSpan={5}
 							count={cityData ? cityData.length : 0}
