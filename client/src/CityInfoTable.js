@@ -134,25 +134,25 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 				<TableHead>
 					<TableRow>
 						<StyledTableCell
-							style={{ width: '5%', borderRight: 'solid 2px grey' }}
+							style={{ width: '5%', borderRight: 'solid 1px grey' }}
 							align='center'
 						>
 							#
 						</StyledTableCell>
 						<StyledTableCell
-							style={{ width: '25%', borderRight: 'solid 2px grey' }}
+							style={{ width: '25%', borderRight: 'solid 1px grey' }}
 							align='center'
 						>
 							Name
 						</StyledTableCell>
 						<StyledTableCell
-							style={{ width: '15%', borderRight: 'solid 2px grey' }}
+							style={{ width: '15%', borderRight: 'solid 1px grey' }}
 							align='center'
 						>
 							Phone
 						</StyledTableCell>
 						<StyledTableCell
-							style={{ width: '30%', borderRight: 'solid 2px grey' }}
+							style={{ width: '30%', borderRight: 'solid 1px grey' }}
 							align='center'
 						>
 							Address
@@ -176,7 +176,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 									component='th'
 									scope='row'
 									align='left'
-									style={{ width: '5%', borderRight: 'solid 2px grey' }}
+									style={{ width: '5%', borderRight: 'solid 1px grey' }}
 								>
 									{cityData ? cityData.indexOf(row) + 1 : null}
 								</StyledTableCell>
@@ -186,7 +186,7 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 									scope='row'
 									style={{
 										width: '25%',
-										borderRight: 'solid 2px grey',
+										borderRight: 'solid 1px grey',
 									}}
 								>
 									{row.name}
@@ -194,14 +194,14 @@ export default function CityInfoTable({ cityData, page, setPage }) {
 								<StyledTableCell
 									align='center'
 									scope='row'
-									style={{ width: '15%', borderRight: 'solid 2px grey' }}
+									style={{ width: '15%', borderRight: 'solid 1px grey' }}
 								>
 									{row.phone ? row.phone : 'N/A'}
 								</StyledTableCell>
 								<StyledTableCell
 									align='left'
 									scope='row'
-									style={{ width: '30%', borderRight: 'solid 2px grey' }}
+									style={{ width: '30%', borderRight: 'solid 1px grey' }}
 								>
 									{row.address}
 								</StyledTableCell>
